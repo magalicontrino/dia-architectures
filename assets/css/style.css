@@ -450,6 +450,22 @@ a { color: inherit; text-decoration: none; }
 
 .facts .k { color: var(--ink-faint); }
 
+/* Le « · » séparateur reste hors des liens : on garde la ligne lisible
+   en n'ourlant que les noms. */
+.facts .links { text-align: right; color: var(--ink-faint); }
+
+.facts .links a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.1em;
+  transition: border-color var(--step);
+}
+
+.facts .links a:hover,
+.facts .links a:focus-visible { border-bottom-color: var(--ink); }
+
+.facts .links a:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+
 /* --- Contact --------------------------------------------------------------- */
 
 .contact { background: var(--paper); color: var(--ink); }
