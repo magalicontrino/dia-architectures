@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .mark { stroke: #10283f; }
+    @media (prefers-color-scheme: dark) { .mark { stroke: #ffffff; } }
+  </style>
+  <!-- Monogramme « D » géométrique au trait, dans l'esprit du logo :
+       fût vertical + demi-cercle, tracé fin, sans remplissage. -->
+  <path class="mark"
+        d="M9 7h5a9 9 0 0 1 0 18H9z"
+        fill="none"
+        stroke-width="1.75"
+        stroke-linejoin="miter" />
+</svg>

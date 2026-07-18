@@ -7,8 +7,21 @@
    interlettrage négatif, blocs en deux colonnes séparés par des filets fins.
    ========================================================================== */
 
+/* Jost Light (SIL OFL, Google Fonts) — substitut libre de Brandon Grotesque
+   Light, la police du logo d'origine, qui est sous licence commerciale et ne
+   peut pas être redistribuée ici. Les largeurs de rendu sont recalées à
+   l'identique via letter-spacing (voir .wordmark__name / .wordmark__sub). */
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/jost-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #111111;
+  --navy: #10283f;
   --ink-soft: #7a7a7a;
   --ink-faint: #a8a8a8;
   --paper: #ffffff;
@@ -73,38 +86,51 @@ a { color: inherit; text-decoration: none; }
 
 /* Repris du site DIA existant : le logo centré sur une large plage blanche,
    dans le flux de la page — et non une barre fixe superposée aux images. */
+/* Valeurs relevées sur dia-architectures.org : elles y sont fixes en pixels,
+   identiques quelle que soit la largeur de fenêtre.
+     DIA            55px / interligne 77px   / #000     / largeur rendue 91px
+     architectures  29px / interligne 40,6px / #10283f  / largeur rendue 149px
+     décalage haut-à-haut entre les deux lignes : 57px */
 .masthead {
   position: static;
   background: var(--paper);
   color: var(--ink);
   display: grid;
   justify-items: center;
-  gap: clamp(1.8rem, 5vh, 3.2rem);
   text-align: center;
-  padding: clamp(3.5rem, 11vh, 7rem) var(--gutter) clamp(2.5rem, 7vh, 4.5rem);
+  padding: 35px var(--gutter) clamp(2.5rem, 7vh, 4.5rem);
 }
 
 .wordmark {
-  display: grid;
-  gap: 0.1em;
-  line-height: 1;
-  font-weight: 200;
-  letter-spacing: normal;
-  text-transform: none;
+  display: block;
+  font-family: "Jost", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
 .wordmark__name {
-  font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4.6rem);
-  letter-spacing: 0.06em;
-  font-weight: 200;
+  display: block;
+  font-size: 55px;
+  line-height: 77px;
+  /* Recale la largeur de « DIA » sur les 91px du logo d'origine. */
+  letter-spacing: 0.0458em;
+  /* letter-spacing s'applique aussi après la dernière lettre : on le
+     compense pour que le bloc reste optiquement centré. */
+  text-indent: 0.0458em;
+  color: #000;
 }
 
 .wordmark__sub {
-  font-size: clamp(1.05rem, 0.8rem + 1.1vw, 1.7rem);
-  letter-spacing: 0.02em;
-  font-weight: 300;
-  color: var(--ink);
+  display: block;
+  font-size: 29px;
+  line-height: 40.6px;
+  letter-spacing: 0;
+  color: var(--navy);
+  /* 77px d'interligne pour un décalage voulu de 57px. */
+  margin-top: -20px;
 }
+
+/* La nav reprend sa respiration sous le logo. */
+.masthead .nav { margin-top: clamp(1.8rem, 5vh, 3.2rem); }
 
 .nav {
   display: flex;
