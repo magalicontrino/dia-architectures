@@ -186,10 +186,14 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-soft);
 }
 
-/* Le diaporama : une bande d'image bord à bord, sur fond blanc. */
+/* Le diaporama, repris du site d'origine : une petite image centrée sous le
+   logo. Dimensions relevées là-bas : 187 x 283 px, haut à 185 px, soit 52 px
+   sous le bas du bloc de titre. */
 .hero__stage {
   position: relative;
-  height: clamp(20rem, 62vh, 42rem);
+  width: 187px;
+  height: 283px;
+  margin-top: 52px;
   overflow: hidden;
   background: var(--paper);
 }
