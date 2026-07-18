@@ -250,15 +250,8 @@
      Header state + active section + year
      --------------------------------------------------------------------- */
   (function chrome() {
-    var head = $("masthead");
     var year = $("year");
     if (year) year.textContent = String(new Date().getFullYear());
-
-    var onScroll = function () {
-      if (head) head.dataset.scrolled = window.scrollY > 40 ? "true" : "false";
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
 
     var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
     var sections = links
